@@ -12,7 +12,7 @@ Library](https://github.com/AdaCore/Ada_Drivers_Library/) repo.
 '''
 
 name = "adl_middleware"
-version = "0.1.1"
+version = "0.2.0-dev"
 licenses = "BSD-3-Clause"
 authors=["AdaCore"]
 website="https://github.com/AdaCore/Ada_Drivers_Library/"
@@ -22,4 +22,12 @@ project-files = ["adl_middleware.gpr"]
 tags = ["embedded", "nostd", "fat", "bitmap"]
 
 [[depends-on]]
-hal = "^0.1.0"
+hal = "~0.3.0"
+
+[build-switches]
+"*".style_checks = "no"
+
+[configuration.variables]
+Max_Mount_Points = {type = "integer", first = 1, default = 2}
+Max_Mount_Name_Length = {type = "integer", first = 1, default = 128}
+Max_Path_Length = {type = "integer", first = 1, default = 1024}
